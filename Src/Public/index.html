@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Version Management System</title>
+    <script type="module" src="main.js" defer></script>
+    <script type="module" src="/Src/database.js"></script>
+
+</head>
+<body>
+    <h1>Version Management System</h1>
+
+    <h2>Login</h2>
+    <button id="login">Log in</button>
+    <button id="logout">Log out</button>
+
+    <h2>Create User</h2>
+    <form id="create-user-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <label for="email">Email:</label>
+        <input type="text" id="email">
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <label for="department">Department:</label>
+        <input type="text" id="department">
+        <label for="isAdmin">Admin:</label>
+        <input type="checkbox" id="isAdmin">
+        <button type="submit">Create User</button>
+    </form>
+
+    <h2>Create Software</h2>
+    <form id="create-software-form">
+        <label for="software-name">Software Name:</label>
+        <input type="text" id="software-name">
+        <button type="submit">Create Software</button>
+    </form>
+
+    <h2>Create Version</h2>
+    <form id="create-version-form">
+        <label for="version-name">Version:</label>
+        <input type="text" id="version-name">
+        <label for="release-date">Release Date:</label>
+        <input type="date" id="release-date">
+        <button type="submit">Create Version</button>
+    </form>
+
+    <h2>Assign Software to User</h2>
+    <form id="assign-software-form">
+        <label for="user-id">User ID:</label>
+        <input type="number" id="user-id">
+        <label for="software-id">Software ID:</label>
+        <input type="number" id="software-id">
+        <button type="submit">Assign Software</button>
+    </form>
+
+    <script type="module" src="classes.js"></script>
+</body>
+</html>
