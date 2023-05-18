@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,36 +6,249 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <style>
-        /* Your styles go here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .main {
+    display: flex;
+    justify-content: space-between; /* Separates the sections */
+    width: 100%; /* Adjust as needed */
+    padding: 20px;
+}
+h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 35px;
+}
+h3 {
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+
+}
+.section {
+    width: 30%; /* Adjust based on the margins and how many sections you have */
+    margin: 20px; /* Creates space around each section */
+    background-color: rgb(108, 146, 204);
+    border: none;
+    cursor: pointer;
+    border-radius: 20px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+    width: 50%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+button {
+    color: white;
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: blue;
+    border: 2px solid white; /* Specifies a 2px-wide solid white border */
+    cursor: pointer;
+    border-radius: 20px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+button:hover {
+    background-color: black;
+}
+.navbar {
+            display: flex;
+            justify-content: space-between; /* Position items on either end */
+            align-items: center; /* Vertically center items */
+            background-color: #1100ff;
+            color: #fff;
+            padding: 15px;
+        }
+
+        .navbar .system-name {
+            font-size: 24px;
+        }
+        .logout-btn{
+            color: white;
+    display: block;
+    width: 20%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: blue;
+        }
+        .navbar  {
+            background-color: #0088ff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
     </style>
-  
+
     <script type="module" src="main.js"></script>
-    
 </head>
 <body>
     <header>
-        <!-- Add your header content here -->
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="system-name">Software Version Manager</div>
+            <div class="system-name">IT-Service Portal</div>
+
+            <button width = "10%" class="logout-btn">Logout</button>
+        </nav>
+
+        <!-- Rest of your HTML code -->
     </header>
     <main class="main">
-        <!-- Main content will be displayed here -->
-        <h2>Register User</h2>
-        <form id="registerUserForm">
-            <label for="userName">Name:</label>
-            <input type="text" id="userName" required>
-            <label for="userEmail">Email:</label>
-            <input type="email" id="userEmail" required>
-            <label for="userPassword">Password:</label>
-            <input type="password" id="userPassword" required>
-            <label for="userDepartment">Department:</label>
-            <input type="text" id="userDepartment" required>
-            <label for="isAdmin">Admin:</label>
-            <select id="isAdmin">
-                <option value="0">System Owner</option>
-                <option value="1">Admin</option>
-            </select>
-            <button type="submit">Register</button>
-        </form>
-    </main>
 
+        <!-- User Section -->
+        <section class="section">
+            <h2>Users</h2>
+            <h3>Register User</h3>
+
+            <form id="registerUserForm">
+                <label for="userName">Name:</label>
+                <input type="text" id="userName" required>
+                <label for="userEmail">Email:</label>
+                <input type="password" id="userPassword" required>
+                <label for="userDepartment">Department:</label>
+                <input type="text" id="userDepartment" required>
+                <label for="isAdmin">Admin:</label>
+                <select id="isAdmin">
+                    <option value="0">System Owner</option>
+                    <option value="1">Admin</option>
+                </select>
+                <button type="submit">Send User creation link</button>
+            </form>
+    
+            <h3 style="margin-top: 10px;">Update User</h3>
+            <form id="updateUserForm">
+                <label for="updateUserId">ID:</label>
+                <input type="text" id="updateUserId" required>
+                <label for="updateUserName">Name:</label>
+                <input type="text" id="updateUserName">
+                <label for="updateUserEmail">Email:</label>
+                <input type="email" id="updateUserEmail">
+                <label for="updateUserPassword">Password:</label>
+                <input type="password" id="updateUserPassword">
+                <label for="updateUserDepartment">Department:</label>
+                <input type="text" id="updateUserDepartment">
+                <label for="updateIsAdmin">Admin:</label>
+                <select id="updateIsAdmin">
+                    <option value="0">System Owner</option>
+                    <option value="1">Admin</option>
+                </select>
+                <button id = "button" type="submit">Update User</button>
+            </form>
+            <h3 style="margin-top: 50px;">Delete User</h3>
+    <form id="deleteUserForm">
+        <label for="deleteUser">E-mail:</label>
+        <input type="text" id="deleteUser" required>
+        <button type="submit">Delete User</button>
+    </form>
+
+</section>
+
+        <!-- Software Section -->
+        <section class="section" >
+            <h2>Software</h2>
+            
+            <!-- Add Software -->
+            <div>
+                <h3>Add Software</h3>
+                <form id="addSoftwareForm">
+                    <label for="softwareName">Software Name:</label>
+                    <input type="text" id="softwareName" required>
+                    <label for="softwareVersion">Current Version:</label>
+                    <input type="text" id="softwareVersion" required>
+                    <label for="softwareVersion">Date version was published:</label>
+                    <input type="text" id="softwareDateVersion" required>
+                    <button type="submit">Register Software</button>
+                </form>
+            </div>
+        
+            <!-- Update Software -->
+            <div>
+                <h3 style="margin-top: 30px;">Change Software Attributes</h3>
+                <form id="updateSoftwareForm">
+                    <label for="updateSoftwareId">Name of software to be changed</label>
+                    <input type="text" id="updateSoftwareId" required>
+                    <label for="updateSoftwareName">Name:</label>
+                    <input type="text" id="updateSoftwareName">
+                    <label for="updateSoftwareVersion">Current Version:</label>
+                    <input type="text" id="updateSoftwareVersion">
+                    <label for="updateSoftwareVersion">Date version was published:</label>
+                    <input type="text" id="updateSoftwareVersion">
+                    <button type="submit">Register software</button>
+                </form>
+            </div>
+        
+            <!-- Delete Software -->
+            <div>
+                <h3 style="margin-top: 30px;">Delete Software</h3>
+                <form id="deleteSoftwareForm">
+                    <label for="deleteSoftwareId">Name of software to be deleted:</label>
+                    <input type="text" id="deleteSoftwareId" required>
+                    <button type="submit">Delete Software</button>
+                </form>
+            </div>
+        </section>
+        <section class="section" >
+            <h2>Users and Software</h2>
+            
+            <!-- Add Software -->
+            <div>
+                <h3>Assign software</h3>
+                <form id="assignSoftwareForm">
+                    <label for="softwareName">Name of Software/System:</label>
+                    <input type="text" id="softwareName" required>
+                    <label for="softwareVersion">E-mail of User:</label>
+                    <input type="text" id="Email" required>
+                    <button type="submit">Assign software</button>
+                </form>
+            </div>
+        
+            <!-- Update Software -->
+            <div>
+                <h3 style="margin-top: 30px;">Remove user from software</h3>
+                <form id="updateSoftwareForm">
+                    <label for="softwareName">Name of Software/System:</label>
+                    <input type="text" id="softwareName" required>
+                    <label for="softwareVersion">E-mail of User:</label>
+                    <input type="text" id="Email" required>
+                    <button type="submit">Remove user from software</button>
+                </form>
+            </div>
+            <div>
+                <form id="Button1">
+                    <!-- Include your form fields here -->
+                    <button type="submit" style="margin-top: 50px;">Show all users</button>
+                </form>
+            </div>
+            <div>
+                <form id="Button1">
+                    <!-- Include your form fields here -->
+                    <button type="submit" style="margin-top: 20px;">Show all software</button>
+                </form>
+            </div>
+
+        </section>
+    </main>
 </body>
 </html>

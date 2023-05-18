@@ -1,4 +1,4 @@
-export class TicketSystem {
+class TicketSystem {
     constructor() {
         this.tickets = [];
     }
@@ -22,8 +22,7 @@ export class TicketSystem {
         }
     }
 }
-
-export class Ticket {
+class Ticket {
     constructor(id, title, description, status, assignedTo, createdBy) {
         this.id = id;
         this.title = title;
@@ -41,8 +40,7 @@ export class Ticket {
         this.assignedTo = user;
     }
 }
-
-export class User {
+export default class User {
     constructor(id, name, email, password, department, isAdmin) {
         this.id = id;
         this.name = name;
@@ -54,7 +52,9 @@ export class User {
 }
 
 
-export class Software {
+
+
+class Software {
     constructor(id, name) {
         this.id = id;
         this.name = name;
@@ -76,7 +76,7 @@ export class Software {
 
 }
 
-export class Version {
+class Version {
     constructor(id, versionNumber, releaseDate) {
         this.id = id;
         this.versionNumber = versionNumber;

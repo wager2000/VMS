@@ -1,7 +1,3 @@
-import { User, Software, Version } from './class.js';
-
-// Create a new admin user
-const adminUser = new User(1, 'John Doe', 'john.doe@example.com', 'password123', 'IT', true);
 
 document.getElementById('registerUserForm').addEventListener('submit', (event) => {
     event.preventDefault();

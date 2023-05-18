@@ -1,7 +1,5 @@
 const express = require("express");
 const app = express();
-const path = require('path');
-
 const PORT = process.env.PORT || 8200;
 
 
@@ -29,12 +27,28 @@ let db = new sqlite3.Database('./database.sqlite');
 
 app.use(express.json()); // for parsing application/json
 
+
+
+
+class User {
+  constructor(id, name, email, password, department, isAdmin) {
+      this.id = id;
+      this.name = name;
+      this.email = email;
+      this.password = password;
+      this.department = department;
+      this.isAdmin = isAdmin;
+  }
+}
+
 app.post('/register', function (req, res) {
   const { userName, userEmail, userPassword, userDepartment, isAdmin } = req.body;
 
+  const user = new User(null, userName, userEmail, userPassword, userDepartment, isAdmin);
+
   db.run(
     'INSERT INTO users(name, email, password, department, admin) VALUES(?, ?, ?, ?, ?)',
-    [userName, userEmail, userPassword, userDepartment, isAdmin],
+    [user.name, user.email, user.password, user.department, user.isAdmin],
     (err) => {
       if (err) {
         res.status(500).send(err.message);
@@ -44,4 +58,3 @@ app.post('/register', function (req, res) {
     }
   );
 });
-
