@@ -134,13 +134,11 @@ button:hover {
                     <option value="0">System Owner</option>
                     <option value="1">Admin</option>
                 </select>
-                <button type="submit">Send User creation link</button>
+                <button id ="submit1" type="submit">Send User creation link</button>
             </form>
     
             <h3 style="margin-top: 10px;">Update User</h3>
             <form id="updateUserForm">
-                <label for="updateUserId">ID:</label>
-                <input type="text" id="updateUserId" required>
                 <label for="updateUserName">Name:</label>
                 <input type="text" id="updateUserName">
                 <label for="updateUserEmail">Email:</label>
@@ -173,21 +171,21 @@ button:hover {
             <div>
                 <h3>Add Software</h3>
                 <form id="addSoftwareForm">
-                    <label for="softwareName">Software Name:</label>
+                    <label for="softwareName">Software/System Name:</label>
                     <input type="text" id="softwareName" required>
                     <label for="softwareVersion">Current Version:</label>
                     <input type="text" id="softwareVersion" required>
                     <label for="softwareVersion">Date version was published:</label>
                     <input type="text" id="softwareDateVersion" required>
-                    <button type="submit">Register Software</button>
+                    <button type="submit">Register Software/System</button>
                 </form>
             </div>
         
             <!-- Update Software -->
             <div>
-                <h3 style="margin-top: 30px;">Change Software Attributes</h3>
+                <h3 style="margin-top: 30px;">Change Software/System Attributes</h3>
                 <form id="updateSoftwareForm">
-                    <label for="updateSoftwareId">Name of software to be changed</label>
+                    <label for="updateSoftwareId">Name of software/System to be changed</label>
                     <input type="text" id="updateSoftwareId" required>
                     <label for="updateSoftwareName">Name:</label>
                     <input type="text" id="updateSoftwareName">
@@ -195,17 +193,17 @@ button:hover {
                     <input type="text" id="updateSoftwareVersion">
                     <label for="updateSoftwareVersion">Date version was published:</label>
                     <input type="text" id="updateSoftwareVersion">
-                    <button type="submit">Register software</button>
+                    <button type="submit">Register software/System</button>
                 </form>
             </div>
         
             <!-- Delete Software -->
             <div>
-                <h3 style="margin-top: 30px;">Delete Software</h3>
+                <h3 style="margin-top: 30px;">Delete Software/System</h3>
                 <form id="deleteSoftwareForm">
-                    <label for="deleteSoftwareId">Name of software to be deleted:</label>
+                    <label for="deleteSoftwareId">Name of Software/System to be deleted:</label>
                     <input type="text" id="deleteSoftwareId" required>
-                    <button type="submit">Delete Software</button>
+                    <button type="submit">Delete Software/System</button>
                 </form>
             </div>
         </section>
@@ -214,25 +212,25 @@ button:hover {
             
             <!-- Add Software -->
             <div>
-                <h3>Assign software</h3>
+                <h3>Assign Software/System</h3>
                 <form id="assignSoftwareForm">
                     <label for="softwareName">Name of Software/System:</label>
                     <input type="text" id="softwareName" required>
                     <label for="softwareVersion">E-mail of User:</label>
                     <input type="text" id="Email" required>
-                    <button type="submit">Assign software</button>
+                    <button type="submit">Assign Software/System</button>
                 </form>
             </div>
         
             <!-- Update Software -->
             <div>
-                <h3 style="margin-top: 30px;">Remove user from software</h3>
+                <h3 style="margin-top: 30px;">Remove user from Software/System</h3>
                 <form id="updateSoftwareForm">
                     <label for="softwareName">Name of Software/System:</label>
                     <input type="text" id="softwareName" required>
                     <label for="softwareVersion">E-mail of User:</label>
                     <input type="text" id="Email" required>
-                    <button type="submit">Remove user from software</button>
+                    <button type="submit">Remove user from Software/System</button>
                 </form>
             </div>
             <div>
@@ -244,7 +242,7 @@ button:hover {
             <div>
                 <form id="Button1">
                     <!-- Include your form fields here -->
-                    <button type="submit" style="margin-top: 20px;">Show all software</button>
+                    <button type="submit" style="margin-top: 20px;">Show all Software/System</button>
                 </form>
             </div>
 

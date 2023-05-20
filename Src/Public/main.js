@@ -1,5 +1,5 @@
 
-document.getElementById('registerUserForm').addEventListener('submit', (event) => {
+document.getElementById('submit1').addEventListener('submit', (event) => {
     event.preventDefault();
   
     const userName = document.getElementById('userName').value;
@@ -28,6 +28,67 @@ document.getElementById('registerUserForm').addEventListener('submit', (event) =
       .catch((error) => {
         console.error('Error:', error);
       });
+  });
+
+  document.getElementById('addSoftwareForm').addEventListener('submit', function(event) {
+    event.preventDefault();  
+
+    let softwareName = document.getElementById('softwareName').value;
+    let softwareDateVersion = document.getElementById('softwareDateVersion').value;
+
+    fetch('/addSoftware', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            softwareName: softwareName,
+            softwareDateVersion: softwareDateVersion
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Software added successfully!');
+        } else {
+            alert('Failed to add software. Please try again.');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
+  document.getElementById('assignSoftwareForm').addEventListener('submit', function(event) {
+    event.preventDefault();  
+  
+    let softwareName = document.getElementById('softwareName').value;
+    let Email = document.getElementById('Email').value;
+  
+    console.log(`Assigning ${softwareName} to ${Email}`); // Log the inputs
+  
+    fetch('/assignSoftware', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        softwareName: softwareName,
+        Email: Email
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data); // Log the server response
+      if (data.success) {
+        alert('Software assigned successfully!');
+      } else {
+        alert('Failed to assign software. Please try again.');
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   });
 /*
 // Helper function to find a software by ID

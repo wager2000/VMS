@@ -1,0 +1,280 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="system-name">Software Version Manager</div>
+            <div class="system-name">IT-Service Portal</div>
+
+            <button width = "10%" class="logout-btn">Logout</button>
+        </nav>
+
+        <!-- Rest of your HTML code -->
+    </header>
+    <style>
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+    width: 50%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+button {
+    color: white;
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: blue;
+    border: 2px solid white; /* Specifies a 2px-wide solid white border */
+    cursor: pointer;
+    border-radius: 20px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+button:hover {
+    background-color: black;
+}
+.navbar {
+            display: flex;
+            justify-content: space-between; /* Position items on either end */
+            align-items: center; /* Vertically center items */
+            background-color: #1100ff;
+            color: #fff;
+            padding: 15px;
+        }
+
+        .navbar .system-name {
+            font-size: 24px;
+        }
+        .logout-btn{
+            color: white;
+    display: block;
+    width: 20%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: blue;
+        }
+        .navbar  {
+            background-color: #0088ff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #f8f9fa;
+}
+#currentVersionText {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: blue;
+}
+
+.content {
+    display: flex;
+}
+.newVersion {
+    /* other existing styles... */
+    position: relative; /* add this line */
+}
+
+.newVersion .updateButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 15%;
+}
+
+
+.newVersion .updateButton:hover {
+    background-color: darkblue;
+}
+.sidebar {
+    width: 10%; /* Make the sidebar thinner */
+    background-color: #6aa6e1;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align the buttons to the top */
+    align-items: center; /* Center the buttons horizontally */
+    padding: 20px; /* Add some padding at the top */
+}
+
+.sidebar button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 80%; /* Make the buttons take up 80% of the sidebar width */
+}
+
+#softwareDetails {
+    width: 50%; /* Increase the width of the software details section to make up for the sidebar's reduced width */
+    padding: 0 20px;
+}
+.sidebar button:hover {
+    background: #0056b3;
+}
+
+#softwareDetails {
+    width: 80%; 
+    padding: 0 20px;
+}
+
+#versionInfo {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.versionBox {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    background: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.versionBox h3 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.versionBox p {
+    margin-bottom: 10px;
+}
+
+#oldVersions {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#oldVersionsList {
+    width: 100%;
+}
+
+#oldVersionsList div {
+    border: 1px solid #ced4da;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+</style>
+    <main>
+        <div class="content">
+            <!-- Software buttons -->
+            <aside class="sidebar">
+                <button>Software 1</button>
+                <button>Software 2</button>
+                <button>Software 3</button>
+                <button>System 1</button>
+                <button>System 2</button>
+                <button>System 3</button>
+
+
+
+
+                <!-- More buttons... -->
+            </aside>
+        
+            <!-- Software version details -->
+            <section id="softwareDetails">
+                <h2 id="softwareName">Software 1</h2>
+                
+                <!-- Version Info -->
+                <div id="newVersion" class="versionBox newVersion">
+                    <h3>Software 1 version: 23.001.2017x </h3>
+                    <button class="updateButton">Update to this version</button>
+                    
+                    <!-- Details and Bug Fixes for new version -->
+                    <div id="newVersionDetailsAndFixes">
+                        <h4>Details: </h4>
+                        <p id="newDetailText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <h4>Bug Fixes</h4>
+                        <p id="newBugFixesText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+        
+                    <!-- Current version info -->
+                    <div id="newVersion" class="versionBox newVersion">
+                        <h3>Software 1 version: 23.001.2012x</h3>
+                        <h3 id="currentVersionText">Current version</h3>
+
+                        <!-- Details and Bug Fixes for current version -->
+                        <div id="currentVersionDetailsAndFixes">
+                            <h4>Details</h4>
+                            <p id="currentDetailText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                            <h4>Bug Fixes</h4>
+                            <p id="currentBugFixesText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+                    </div>
+        
+                    <!-- Previous versions info -->
+                    <div id="oldVersions" class="versionBox">
+                        <h3>Older Versions</h3>
+                        <!-- List of old versions -->
+                        <div id="oldVersionsList">
+                            <!-- Older versions will be listed here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

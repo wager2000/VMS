@@ -40,7 +40,7 @@ class Ticket {
         this.assignedTo = user;
     }
 }
-export default class User {
+ class User {
     constructor(id, name, email, password, department, isAdmin) {
         this.id = id;
         this.name = name;
@@ -55,26 +55,28 @@ export default class User {
 
 
 class Software {
-    constructor(id, name) {
+    constructor(id, name, publication_date) {
         this.id = id;
         this.name = name;
-        this.versions = [];
+        this.publication_date = publication_date;
     }
 
-    addVersion(version) {
-        this.versions.push(version);
+    addSoftware(db, callback) {
+        let sql = `INSERT INTO software (name, publication_date) VALUES (?, ?)`;
+        let values = [this.name, this.publication_date];
+
+        db.run(sql, values, function(err) {
+            if (err) {
+                console.error(err.message);
+                callback({ success: false, msg: 'Failed to add software. Please try again.' });
+            } else {
+                console.log(`A row has been inserted with rowid ${this.lastID}`);
+                callback({ success: true, msg: 'Software added successfully' });
+            }
+        });
     }
-
-    removeVersion(id) {
-        this.versions = this.versions.filter(version => version.id !== id);
-    }
-
-    getVersionById(id) {
-        return this.versions.find(version => version.id === id);
-    }
-
-
 }
+
 
 class Version {
     constructor(id, versionNumber, releaseDate) {
@@ -84,3 +86,5 @@ class Version {
     }
 }
 
+
+module.exports = User, Software;
