@@ -46,8 +46,6 @@
                 <button class="logout-btn">IT-Sercice Portal</button>
                 <button class="logout-btn">Log Out</button>
         </nav>
-        
-
     </header>
     <style>
 
@@ -240,17 +238,12 @@ body {
         <div class="content">
             <!-- Software buttons -->
             <aside class="sidebar">
-                <button>Software 1</button>
+                <button >Software 1</button>
                 <button>Software 2</button>
                 <button>Software 3</button>
                 <button>System 1</button>
                 <button>System 2</button>
                 <button>System 3</button>
-
-
-
-
-                <!-- More buttons... -->
             </aside>
         
             <!-- Software version details -->
@@ -259,27 +252,30 @@ body {
                 
                 <!-- Version Info -->
                 <div id="newVersion" class="versionBox newVersion">
-                    <h3>Software 1 version: 23.001.2017x </h3>
-                    <button class="updateButton">Update to this version</button>
+                    <h3 id="version">version 23.001.2017x </h3>
+                    <button id="button" type="submit" class="updateButton">Update to this version</button>
                     
                     <!-- Details and Bug Fixes for new version -->
                     <div id="newVersionDetailsAndFixes">
                         <h4>Details: </h4>
-                        <p id="newDetailText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <p id="Details">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
                         <h4>Bug Fixes</h4>
-                        <p id="newBugFixesText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <p id="bugFixes">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p id="date">
+                            28/02/2023
                         </p>
                     </div>
                 </div>
         
                     <!-- Current version info -->
                     <div id="newVersion" class="versionBox newVersion">
-                        <h3>Software 1 version: 23.001.2012x</h3>
+                        <h3>version 23.001.2012x</h3>
                         <h3 id="currentVersionText">Current version</h3>
 
                         <!-- Details and Bug Fixes for current version -->
@@ -294,6 +290,9 @@ body {
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             </p>
+                            <p>
+                            10/08/2022
+                        </p>
                         </div>
                     </div>
         
@@ -310,4 +309,5 @@ body {
         </div>
     </main>
 </body>
+<script src="./version.js"></script>
 </html>

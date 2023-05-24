@@ -1,14 +1,13 @@
 const express = require("express");
-
 const sqlite3 = require("sqlite3").verbose();
 express.static.mime.types["js"] = "application/javascript";
-
 let db = new sqlite3.Database("./../database.sqlite", (err) => {
   if (err) {
     console.error(err.message);
   }
 });
 
+//Users
 class User {
   constructor(id, name, email, password, department, isAdmin) {
     this.id = id;
@@ -18,8 +17,28 @@ class User {
     this.department = department;
     this.isAdmin = isAdmin;
   }
+  showUsers() {
+    //To be made
+  }
+  createUser() {
+    //To be made
+  }
+  deleteUser() {
+    //To be made
+  }
+  updateUserInformation() {
+    //To be made
+  }
+  logIn() {
+    //To be made
+  }
+  logOut() {
+    //To be made
+  }
+  
 }
 
+//Software/Systems
 class softwareHondtering {
   constructor(email, software) {
     this.email = email;
@@ -40,56 +59,17 @@ class softwareHondtering {
     });
     return "succes";
   }
+
+  removeSoftwareFromUser() {
+    //To be made
+  }
 }
 
-const assignSoftware = new softwareHondtering(
+/*const assignSoftware = new softwareHondtering(
    "X",
   "Software 3"
 );
-console.log(assignSoftware.tildelSoftware);
-
-class TicketSystem {
-  constructor() {
-    this.tickets = [];
-  }
-
-  addTicket(ticket) {
-    this.tickets.push(ticket);
-  }
-
-  removeTicket(id) {
-    this.tickets = this.tickets.filter((ticket) => ticket.id !== id);
-  }
-
-  getTicketById(id) {
-    return this.tickets.find((ticket) => ticket.id === id);
-  }
-
-  updateTicket(id, updatedTicket) {
-    const ticketIndex = this.tickets.findIndex((ticket) => ticket.id === id);
-    if (ticketIndex !== -1) {
-      this.tickets[ticketIndex] = updatedTicket;
-    }
-  }
-}
-class Ticket {
-  constructor(id, title, description, status, assignedTo, createdBy) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-    this.status = status;
-    this.assignedTo = assignedTo;
-    this.createdBy = createdBy;
-  }
-
-  updateStatus(newStatus) {
-    this.status = newStatus;
-  }
-
-  assignUser(user) {
-    this.assignedTo = user;
-  }
-}
+console.log(assignSoftware.tildelSoftware);*/
 
 class Software {
   constructor(id, name, publication_date) {
@@ -97,32 +77,61 @@ class Software {
     this.name = name;
     this.publication_date = publication_date;
   }
-
-  addSoftware(db, callback) {
-    let sql = `INSERT INTO software (name, publication_date) VALUES (?, ?)`;
-    let values = [this.name, this.publication_date];
-
-    db.run(sql, values, function (err) {
-      if (err) {
-        console.error(err.message);
-        callback({
-          success: false,
-          msg: "Failed to add software. Please try again.",
-        });
-      } else {
-        console.log(`A row has been inserted with rowid ${this.lastID}`);
-        callback({ success: true, msg: "Software added successfully" });
-      }
-    });
+  deleteSoftware() {
+    //To be made
+  }
+  createSoftware() {
+    //To be made
+  }
+  changeSoftware() {
+    //To be made
   }
 }
 
+//Versions
 class Version {
-  constructor(id, versionNumber, releaseDate) {
-    this.id = id;
+  constructor(versionNumber, software, changes, releaseDate) {
     this.versionNumber = versionNumber;
+    this.software = software;
+    this.changes = changes;
     this.releaseDate = releaseDate;
   }
 }
 
-(module.exports = User, Software, softwareHondtering);
+//Tickets
+class ticketAdministrator {
+  constructor() {
+    this.tickets = [];
+  }
+
+  createTicket(ticket) {
+    //To be made
+  }
+
+  closeTicket(id) {
+    //To be made
+  }
+}
+
+class Ticket {
+  constructor(id, title, description, dateCreated, dateClosed, status) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.dateCreated = dateCreated;
+    this.dateClosed = dateClosed;
+    this.status = status;
+  }
+}
+
+//Mail
+class mail {
+  receiveMail() {
+    //To be made
+  }
+  sendMail() {
+    //To be made
+  }
+}
+
+(module.exports = User), Software, softwareHondtering, Ticket, Version;
