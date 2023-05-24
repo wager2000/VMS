@@ -3,6 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 8200;
 const User = require("./models/class");
 const Software = require("./models/class")
+const softwareHondtering = require("./models/class")
 
 
 app.get('/', (req, res) => {
@@ -94,7 +95,7 @@ app.post('/addSoftware', (req, res) => {
 
 
 app.post('/assignSoftware', (req, res) => {
-  console.log(req.body); // Log the request body
+  console.log(softwareHondtering.tildelSoftware)
 
   const { softwareName, Email } = req.body;
 
