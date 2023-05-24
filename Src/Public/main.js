@@ -1,94 +1,98 @@
+//Tilføj bruger
 const button = document.getElementById("submit1");
-
 button.onclick = function (e) {
-    e.preventDefault();
-    const userName = document.getElementById('userName').value;
-    const userEmail = document.getElementById('userEmail').value;
-    const userDepartment = document.getElementById('userDepartment').value;
-    const isAdmin = document.getElementById('isAdmin').value;
-    console.log(userName, userEmail, userDepartment, isAdmin)
-  
-    fetch('http://localhost:8200/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        userName,
-        userEmail,
-        userDepartment,
-        isAdmin,
-      }),
-    })
-      .then((response) => response.text())
-      .then((message) => {
-        console.log(message);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  };
+  e.preventDefault();
+  const userName = document.getElementById("userName").value;
+  const userEmail = document.getElementById("userEmail").value;
+  const userDepartment = document.getElementById("userDepartment").value;
+  const isAdmin = document.getElementById("isAdmin").value;
+  console.log(userName, userEmail, userDepartment, isAdmin);
 
-  document.getElementById('addSoftwareForm').addEventListener('submit', function(event) {
-    event.preventDefault();  
-
-    let softwareName = document.getElementById('softwareName').value;
-    let softwareDateVersion = document.getElementById('softwareDateVersion').value;
-
-    fetch('/addSoftware', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            softwareName: softwareName,
-            softwareDateVersion: softwareDateVersion
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Software added successfully!');
-        } else {
-            alert('Failed to add software. Please try again.');
-        }
+  fetch("http://localhost:8200/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      userName,
+      userEmail,
+      userDepartment,
+      isAdmin,
+    }),
+  })
+    .then((response) => response.text())
+    .then((message) => {
+      console.log(message);
     })
     .catch((error) => {
-        console.error('Error:', error);
+      console.error("Error:", error);
     });
-});
+};
 
-  document.getElementById('assignSoftwareForm').addEventListener('submit', function(event) {
-    event.preventDefault();  
-  
-    let softwareName = document.getElementById('softwareName').value;
-    let Email = document.getElementById('Email').value;
-  
-    console.log(`Assigning ${softwareName} to ${Email}`); // Log the inputs
-  
-    fetch('/assignSoftware', {
-      method: 'POST',
+document
+  .getElementById("addSoftwareForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    let softwareName = document.getElementById("softwareName").value;
+    let softwareDateVersion = document.getElementById(
+      "softwareDateVersion"
+    ).value;
+
+    fetch("/addSoftware", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         softwareName: softwareName,
-        Email: Email
+        softwareDateVersion: softwareDateVersion,
       }),
     })
-    .then(response => response.json())
-    .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          alert("Software added successfully!");
+        } else {
+          alert("Failed to add software. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+
+const button2 = document.getElementById("submit2");
+button2.onclick = function (e) {
+  e.preventDefault();
+  const softwareName = document.getElementById("nameOfSoftware").value;
+  const Email = document.getElementById("assignEmail").value;
+  console.log(softwareName);
+  console.log(`Assigning ${softwareName} to ${Email}`); // Log the inputs
+
+  fetch("/assignSoftware", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      softwareName: softwareName,
+      Email: Email,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
       console.log(data); // Log the server response
       if (data.success) {
-        alert('Software assigned successfully!');
+        alert("Software assigned successfully!");
       } else {
-        alert('Failed to assign software. Please try again.');
+        alert("Failed to assign software. Please try again.");
       }
     })
     .catch((error) => {
-      console.error('Error:', error);
+      console.error("Error:", error);
     });
-  });
+};
 /*
 // Helper function to find a software by ID
 function findSoftwareById(softwareId) {
@@ -333,21 +337,21 @@ function assignSoftware() {
     });
   }
 */
-  function registerUser() {
-    db.run(
-        'INSERT INTO users(name, email, password, department, isAdmin) VALUES(?, ?, ?, ?, ?)',
-        [userName, userEmail, userPassword, userDepartment, isAdmin],
-        function(err) {
-          if (err) {
-            return console.error(err.message);
-          }
-          console.log(`Rows inserted ${this.changes}`);
-        }
-      );
-    const mainContent = document.querySelector('.main');
-    let output = '<h2>Register User</h2>';
-  
-    output += `
+function registerUser() {
+  db.run(
+    "INSERT INTO users(name, email, password, department, isAdmin) VALUES(?, ?, ?, ?, ?)",
+    [userName, userEmail, userPassword, userDepartment, isAdmin],
+    function (err) {
+      if (err) {
+        return console.error(err.message);
+      }
+      console.log(`Rows inserted ${this.changes}`);
+    }
+  );
+  const mainContent = document.querySelector(".main");
+  let output = "<h2>Register User</h2>";
+
+  output += `
       <form id="registerUserForm">
         <label for="userName">Name:</label>
         <input type="text" name="userName" id="userName" required>
@@ -365,121 +369,123 @@ function assignSoftware() {
         <button type="submit">Register</button>
       </form>
     `;
-  
-    mainContent.innerHTML = output;
-  
-    document.getElementById('registerUserForm').addEventListener('submit', (event) => {
+
+  mainContent.innerHTML = output;
+
+  document
+    .getElementById("registerUserForm")
+    .addEventListener("submit", (event) => {
       event.preventDefault();
-  
-      const userName = document.getElementById('userName').value;
-      const userEmail = document.getElementById('userEmail').value;
-      const userPassword = document.getElementById('userPassword').value;
-      const userDepartment = document.getElementById('userDepartment').value;
-      const isAdmin = document.getElementById('isAdmin').value;
-  
+
+      const userName = document.getElementById("userName").value;
+      const userEmail = document.getElementById("userEmail").value;
+      const userPassword = document.getElementById("userPassword").value;
+      const userDepartment = document.getElementById("userDepartment").value;
+      const isAdmin = document.getElementById("isAdmin").value;
+
       db.run(
-        'INSERT INTO users(name, email, password, department, isAdmin) VALUES(?, ?, ?, ?, ?)',
+        "INSERT INTO users(name, email, password, department, isAdmin) VALUES(?, ?, ?, ?, ?)",
         [userName, userEmail, userPassword, userDepartment, isAdmin],
         (err) => {
           if (err) {
             return console.error(err.message);
           }
-          console.log('New user registered successfully!');
+          console.log("New user registered successfully!");
           // Do something upon successful registration (e.g., display a success message or navigate to another page)
         }
       );
     });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const registerUserButton = document.getElementById("registerUserButton");
+  if (registerUserButton) {
+    registerUserButton.addEventListener("click", registerUser);
   }
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    const registerUserButton = document.getElementById('registerUserButton');
-    if (registerUserButton) {
-      registerUserButton.addEventListener('click', registerUser);
+});
+function deleteUser() {
+  const mainContent = document.querySelector(".main");
+  let output = "<h2>Delete User</h2>";
+
+  output += '<div id="userList"></div>';
+  mainContent.innerHTML = output;
+
+  updateUserList();
+}
+
+function updateUserList() {
+  const userList = document.getElementById("userList");
+
+  db.all("SELECT * FROM users", [], (err, rows) => {
+    if (err) {
+      return console.error(err.message);
     }
-  });
-  function deleteUser() {
-    const mainContent = document.querySelector('.main');
-    let output = '<h2>Delete User</h2>';
-  
-    output += '<div id="userList"></div>';
-    mainContent.innerHTML = output;
-  
-    updateUserList();
-  }
-  
-  function updateUserList() {
-    const userList = document.getElementById('userList');
-  
-    db.all('SELECT * FROM users', [], (err, rows) => {
-      if (err) {
-        return console.error(err.message);
-      }
-  
-      let output = '<ul>';
-      rows.forEach((row) => {
-        output += `
+
+    let output = "<ul>";
+    rows.forEach((row) => {
+      output += `
           <li>
             ${row.name} (${row.email})
             <button onclick="deleteUserById(${row.id})">Delete</button>
           </li>
         `;
-      });
-      output += '</ul>';
-      userList.innerHTML = output;
     });
-  }
-  function deleteUserById(id) {
-    db.run('DELETE FROM users WHERE id = ?', [id], (err) => {
-      if (err) {
-        return console.error(err.message);
-      }
-      console.log(`User with id ${id} deleted successfully!`);
-      updateUserList();
-    });
-  }
+    output += "</ul>";
+    userList.innerHTML = output;
+  });
+}
+function deleteUserById(id) {
+  db.run("DELETE FROM users WHERE id = ?", [id], (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log(`User with id ${id} deleted successfully!`);
+    updateUserList();
+  });
+}
 
-  function editUser() {
-    const mainContent = document.querySelector('.main');
-    let output = '<h2>Edit User</h2>';
-  
-    output += '<div id="userList"></div>';
-    mainContent.innerHTML = output;
-  
-    updateUserListForEditing();
-  }
-  
-  function updateUserListForEditing() {
-    const userList = document.getElementById('userList');
-  
-    db.all('SELECT * FROM users', [], (err, rows) => {
-      if (err) {
-        return console.error(err.message);
-      }
-  
-      let output = '<ul>';
-      rows.forEach((row) => {
-        output += `
+function editUser() {
+  const mainContent = document.querySelector(".main");
+  let output = "<h2>Edit User</h2>";
+
+  output += '<div id="userList"></div>';
+  mainContent.innerHTML = output;
+
+  updateUserListForEditing();
+}
+
+function updateUserListForEditing() {
+  const userList = document.getElementById("userList");
+
+  db.all("SELECT * FROM users", [], (err, rows) => {
+    if (err) {
+      return console.error(err.message);
+    }
+
+    let output = "<ul>";
+    rows.forEach((row) => {
+      output += `
           <li>
             ${row.name} (${row.email})
             <button onclick="editUserById(${row.id})">Edit</button>
           </li>
         `;
-      });
-      output += '</ul>';
-      userList.innerHTML = output;
     });
-  }
-  
-  function editUserById(id) {
-    db.get('SELECT * FROM users WHERE id = ?', [id], (err, row) => {
-      if (err) {
-        return console.error(err.message);
-      }
-  
-      const mainContent = document.querySelector('.main');
-      let output = `<h2>Edit User: ${row.name}</h2>`;
-  
-      output += `
+    output += "</ul>";
+    userList.innerHTML = output;
+  });
+}
+
+function editUserById(id) {
+  db.get("SELECT * FROM users WHERE id = ?", [id], (err, row) => {
+    if (err) {
+      return console.error(err.message);
+    }
+
+    const mainContent = document.querySelector(".main");
+    let output = `<h2>Edit User: ${row.name}</h2>`;
+
+    output += `
         <form onsubmit="updateUser(${row.id}); return false;">
           <label for="name">Name:</label>
           <input type="text" id="name" value="${row.name}" required>
@@ -492,39 +498,43 @@ function assignSoftware() {
           <br>
           <label for="isAdmin">Admin:</label>
           <select id="isAdmin">
-            <option value="yes" ${row.isAdmin === 'yes' ? 'selected' : ''}>Yes</option>
-            <option value="no" ${row.isAdmin === 'no' ? 'selected' : ''}>No</option>
+            <option value="yes" ${
+              row.isAdmin === "yes" ? "selected" : ""
+            }>Yes</option>
+            <option value="no" ${
+              row.isAdmin === "no" ? "selected" : ""
+            }>No</option>
           </select>
           <br>
           <input type="submit" value="Update User">
         </form>
       `;
-      mainContent.innerHTML = output;
-    });
-  }
-  
-  function updateUser(id) {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const isAdmin = document.getElementById('isAdmin').value;
-  
-    db.run(
-      'UPDATE users SET name = ?, email = ?, password = ?, isAdmin = ? WHERE id = ?',
-      [name, email, password, isAdmin, id],
-      (err) => {
-        if (err) {
-          return console.error(err.message);
-        }
-        console.log(`User with id ${id} updated successfully!`);
-        editUser(); // Refresh the user list
+    mainContent.innerHTML = output;
+  });
+}
+
+function updateUser(id) {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const isAdmin = document.getElementById("isAdmin").value;
+
+  db.run(
+    "UPDATE users SET name = ?, email = ?, password = ?, isAdmin = ? WHERE id = ?",
+    [name, email, password, isAdmin, id],
+    (err) => {
+      if (err) {
+        return console.error(err.message);
       }
-    );
-  }
+      console.log(`User with id ${id} updated successfully!`);
+      editUser(); // Refresh the user list
+    }
+  );
+}
 
 function viewSoftwareVersions() {
-  const mainContent = document.querySelector('.main');
-  let output = '<h2>Software Versions</h2>';
+  const mainContent = document.querySelector(".main");
+  let output = "<h2>Software Versions</h2>";
 
   output += '<div id="softwareList"></div>';
   mainContent.innerHTML = output;
@@ -533,14 +543,14 @@ function viewSoftwareVersions() {
 }
 
 function updateSoftwareList() {
-  const softwareList = document.getElementById('softwareList');
+  const softwareList = document.getElementById("softwareList");
 
-  db.all('SELECT * FROM software', [], (err, rows) => {
+  db.all("SELECT * FROM software", [], (err, rows) => {
     if (err) {
       return console.error(err.message);
     }
 
-    let output = '<ul>';
+    let output = "<ul>";
     rows.forEach((row) => {
       output += `
         <li>
@@ -548,7 +558,7 @@ function updateSoftwareList() {
         </li>
       `;
     });
-    output += '</ul>';
+    output += "</ul>";
     softwareList.innerHTML = output;
   });
 }

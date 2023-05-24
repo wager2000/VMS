@@ -51,9 +51,6 @@ class Ticket {
     }
 }
 
-
-
-
 class Software {
     constructor(id, name, publication_date) {
         this.id = id;
@@ -83,6 +80,12 @@ class Version {
         this.id = id;
         this.versionNumber = versionNumber;
         this.releaseDate = releaseDate;
+    }
+}
+
+class Softwarehondtering{
+    tildelSoftware(){
+        
     }
 }
 

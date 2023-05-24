@@ -60,7 +60,7 @@ button {
     padding: 10px;
     margin-top: 20px;
     font-size: 16px;
-    background-color: blue;
+    background-color: #007bff;
     border: 2px solid white; /* Specifies a 2px-wide solid white border */
     cursor: pointer;
     border-radius: 20px; /* Rounded corners */
@@ -89,7 +89,7 @@ button:hover {
     padding: 10px;
     margin-top: 20px;
     font-size: 16px;
-    background-color: blue;
+    background-color: #007bff;
         }
         .navbar  {
             background-color: #0088ff;
@@ -107,10 +107,41 @@ button:hover {
     <header>
         <!-- Navigation Bar -->
         <nav class="navbar">
-            <div class="system-name">Software Version Manager</div>
-            <div class="system-name">IT-Service Portal</div>
-
-            <button width = "10%" class="logout-btn">Logout</button>
+            <div class="system-name"> Version Manager</div>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+                <button class="logout-btn">IT-Sercice Portal</button>
+                <button class="logout-btn">Log Out</button>
         </nav>
 
         <!-- Rest of your HTML code -->
@@ -120,7 +151,7 @@ button:hover {
         <!-- User Section -->
         <section class="section">
             <h2>Users</h2>
-            <h3>Register User</h3>
+            <h3>Create User</h3>
 
             <form id="registerUserForm">
                 <label for="userName">Name:</label>
@@ -137,7 +168,7 @@ button:hover {
                 <button id ="submit1" type="submit">Send User creation link</button>
             </form>
     
-            <h3 style="margin-top: 10px;">Update User</h3>
+            <h3 style="margin-top: 10px;">Change User</h3>
             <form id="updateUserForm">
                 <label for="updateUserName">Name:</label>
                 <input type="text" id="updateUserName">
@@ -165,18 +196,18 @@ button:hover {
 
         <!-- Software Section -->
         <section class="section" >
-            <h2>Software</h2>
+            <h2>Software and Systems</h2>
             
             <!-- Add Software -->
             <div>
-                <h3>Add Software</h3>
+                <h3>Add Software/System</h3>
                 <form id="addSoftwareForm">
-                    <label for="softwareName">Software/System Name:</label>
-                    <input type="text" id="softwareName" required>
+                    <label for="softwareName1">Software/System Name:</label>
+                    <input type="text" id="softwareName1" required>
                     <label for="softwareVersion">Current Version:</label>
                     <input type="text" id="softwareVersion" required>
-                    <label for="softwareVersion">Date version was published:</label>
-                    <input type="text" id="softwareDateVersion" required>
+                    <label for="date">Date version was published:</label>
+                    <input type="text" id="date" required>
                     <button type="submit">Register Software/System</button>
                 </form>
             </div>
@@ -184,13 +215,13 @@ button:hover {
             <!-- Update Software -->
             <div>
                 <h3 style="margin-top: 30px;">Change Software/System Attributes</h3>
-                <form id="updateSoftwareForm">
+                <form id="updateSoftwareForm1">
                     <label for="updateSoftwareId">Name of software/System to be changed</label>
                     <input type="text" id="updateSoftwareId" required>
-                    <label for="updateSoftwareName">Name:</label>
-                    <input type="text" id="updateSoftwareName">
-                    <label for="updateSoftwareVersion">Current Version:</label>
-                    <input type="text" id="updateSoftwareVersion">
+                    <label for="updateSoftwareName2">Name:</label>
+                    <input type="text" id="updateSoftwareName2">
+                    <label for="currentVersion">Current Version:</label>
+                    <input type="text" id="currentVersion">
                     <label for="updateSoftwareVersion">Date version was published:</label>
                     <input type="text" id="updateSoftwareVersion">
                     <button type="submit">Register software/System</button>
@@ -208,28 +239,28 @@ button:hover {
             </div>
         </section>
         <section class="section" >
-            <h2>Users and Software</h2>
+            <h2>Assign/Remove Users from Software/Systems</h2>
             
-            <!-- Add Software -->
+            <!-- assign Software -->
             <div>
                 <h3>Assign Software/System</h3>
                 <form id="assignSoftwareForm">
-                    <label for="softwareName">Name of Software/System:</label>
-                    <input type="text" id="softwareName" required>
-                    <label for="softwareVersion">E-mail of User:</label>
-                    <input type="text" id="Email" required>
-                    <button type="submit">Assign Software/System</button>
+                    <label for="nameOfSoftware">Name of Software/System:</label>
+                    <input type="text" id="nameOfSoftware" required>
+                    <label for="assignEmail">E-mail of User:</label>
+                    <input type="text" id="assignEmail" required>
+                    <button type="submit" id="submit2">Assign Software/System</button>
                 </form>
             </div>
         
-            <!-- Update Software -->
+            <!-- remove Software from user -->
             <div>
                 <h3 style="margin-top: 30px;">Remove user from Software/System</h3>
                 <form id="updateSoftwareForm">
-                    <label for="softwareName">Name of Software/System:</label>
-                    <input type="text" id="softwareName" required>
-                    <label for="softwareVersion">E-mail of User:</label>
-                    <input type="text" id="Email" required>
+                    <label for="softwareNameforUpdate">Name of Software/System:</label>
+                    <input type="text" id="softwareNameforUpdate" required>
+                    <label for="deleteEmail">E-mail of User:</label>
+                    <input type="text" id="deleteEmail" required>
                     <button type="submit">Remove user from Software/System</button>
                 </form>
             </div>
@@ -240,7 +271,7 @@ button:hover {
                 </form>
             </div>
             <div>
-                <form id="Button1">
+                <form id="Button2">
                     <!-- Include your form fields here -->
                     <button type="submit" style="margin-top: 20px;">Show all Software/System</button>
                 </form>
