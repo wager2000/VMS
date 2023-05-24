@@ -69,13 +69,9 @@ let db = new sqlite3.Database('./database.sqlite', (err) => {
 
 app.post('/register', function (req, res) {
   console.log(req.body)
-  const { userName, userEmail, userPassword, userDepartment, isAdmin } = req.body;
-
-  const user = new User(null, userName, userEmail, userPassword, userDepartment, isAdmin);
-
+  const user = new User(req.body.userName, req.body.userEmail, req.body.userDepartment, req.body.isAdmin);
   db.run(
-    'INSERT INTO users(name, email, department, admin) VALUES(?, ?, ?, ?, ?)',
-    [user.name, user.email, user.department, user.isAdmin],
+    `INSERT INTO users(name, email, department, admin) VALUES(${user.name}, ${user.email}, ${user.department}, ${user.isAdmin})`,
     (err) => {
       if (err) {
         res.status(500).send(err.message);

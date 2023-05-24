@@ -1,12 +1,12 @@
+const button = document.getElementById("submit1");
 
-document.getElementById('submit1').addEventListener('submit', (event) => {
-    event.preventDefault();
-  
+button.onclick = function (e) {
+    e.preventDefault();
     const userName = document.getElementById('userName').value;
     const userEmail = document.getElementById('userEmail').value;
-    const userPassword = document.getElementById('userPassword').value;
     const userDepartment = document.getElementById('userDepartment').value;
     const isAdmin = document.getElementById('isAdmin').value;
+    console.log(userName, userEmail, userDepartment, isAdmin)
   
     fetch('http://localhost:8200/register', {
       method: 'POST',
@@ -16,7 +16,6 @@ document.getElementById('submit1').addEventListener('submit', (event) => {
       body: JSON.stringify({
         userName,
         userEmail,
-        userPassword,
         userDepartment,
         isAdmin,
       }),
@@ -28,7 +27,7 @@ document.getElementById('submit1').addEventListener('submit', (event) => {
       .catch((error) => {
         console.error('Error:', error);
       });
-  });
+  };
 
   document.getElementById('addSoftwareForm').addEventListener('submit', function(event) {
     event.preventDefault();  
