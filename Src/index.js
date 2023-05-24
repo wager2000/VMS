@@ -68,6 +68,7 @@ let db = new sqlite3.Database('./database.sqlite', (err) => {
 
 
 app.post('/register', function (req, res) {
+  console.log(req.body)
   const { userName, userEmail, userPassword, userDepartment, isAdmin } = req.body;
 
   const user = new User(null, userName, userEmail, userPassword, userDepartment, isAdmin);
